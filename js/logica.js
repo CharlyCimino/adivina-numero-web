@@ -1,6 +1,9 @@
 const NUM_MIN = 1023;
 const NUM_MAX = 9876;
+let cuerpoTabla = document.getElementById("cuerpoTabla");
+let inputNumeroApostado = document.getElementById("inputNumeroApostado");
 let numeroPensado;
+let intentos = 0;
 
 /*var entrada = document.getElementById("entradaDelUsuario");
 var cuadroAzul = document.getElementById("resultado");
@@ -17,6 +20,7 @@ function nuevoNumeroPensado() {
 	while (tieneCifrasIguales(x)) {
 		x = aleatorioEntre(NUM_MIN, NUM_MAX + 1).toString(10);
 	}
+	console.log(x);
 	return x;
 }
 
@@ -24,8 +28,38 @@ function empiezaConCero(numStr) {
 	return numStr.charAt(0) == "0";
 }
 
-function reiniciar() {}
-function adivinar() {}
+function limpiarTabla() {
+	let filas = cuerpoTabla.children;
+	let cant = filas.length;
+	for (let i = 0; i < cant; i++) {
+		filas[0].remove();
+	}
+}
+
+function reiniciar() {
+	limpiarTabla();
+	numeroPensado = nuevoNumeroPensado();
+}
+
+function adivinar() {
+	intentos++;
+	let numeroApostado = inputNumeroApostado.value;
+	console.log(numeroApostado);
+
+	let tds = [];
+	for (let index = 0; index < 5; index++) {
+		let nodo = document.createElement("td");
+		nodo.innerText = "hola";
+		console.log(nodo);
+		tds.push(nodo);
+	}
+	let nuevaFila = document.createElement("tr");
+	for (let index = 0; index < 5; index++) {
+		nuevaFila.appendChild(tds[index]);
+	}
+
+	cuerpoTabla.appendChild(nuevaFila);
+}
 
 function tieneCifrasIguales(numStr) {
 	let tiene = false;
@@ -44,13 +78,7 @@ function tieneCifrasIguales(numStr) {
 	return tiene;
 }
 
-for (let index = 0; index < 5; index++) {
-	const element = nuevoNumeroPensado();
-	console.log(element);
-	console.log("tieneCifrasIguales " + tieneCifrasIguales(element));
-}
-
-console.log();
+window.onload = reiniciar;
 
 /*function adivinar() {
 	genio.src = "img/desafio.png";
