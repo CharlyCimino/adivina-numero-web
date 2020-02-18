@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Adivina número</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+		<link rel="icon" href="img/favicon.ico" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row col-md-12"></div>
+			<div class="row col-md-12">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Número</th>
+								<th scope="col">Buenos</th>
+								<th scope="col">Regulares</th>
+								<th scope="col">Malos</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">1</th>
+								<td>Mark</td>
+								<td>Otto</td>
+								<td>@mdo</td>
+							</tr>
+							<tr>
+								<th scope="row">2</th>
+								<td>Jacob</td>
+								<td>Thornton</td>
+								<td>@fat</td>
+							</tr>
+							<tr>
+								<th scope="row">3</th>
+								<td colspan="2">Larry the Bird</td>
+								<td>@twitter</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row col-md-12">
+				<div class="input-group ">
+					<input type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" onclick="adivinar()">Adivinar</button>
+						<button class="btn btn-outline-secondary" type="button" onclick="reiniciar()">Reiniciar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="caja pie">Desarrollado por <img src="img/logoHorizontal.png" /></div>
+
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/logica.js"></script>
+	</body>
+</html>
