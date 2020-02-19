@@ -1,5 +1,6 @@
 const NUM_MIN = 1023;
 const NUM_MAX = 9876;
+let numerosApostados = [];
 let cuerpoTabla = document.getElementById("cuerpoTabla");
 let inputNumeroApostado = document.getElementById("inputNumeroApostado");
 let numeroPensado;
@@ -20,7 +21,6 @@ function nuevoNumeroPensado() {
 	while (tieneCifrasIguales(x)) {
 		x = aleatorioEntre(NUM_MIN, NUM_MAX + 1).toString(10);
 	}
-	console.log(x);
 	return x;
 }
 
@@ -42,23 +42,41 @@ function reiniciar() {
 }
 
 function adivinar() {
-	intentos++;
 	let numeroApostado = inputNumeroApostado.value;
-	console.log(numeroApostado);
+	comprobarNumeroApostado(numeroApostado);
+	intentos++;
+	numerosApostados.push(numeroApostado);
+	let resultados = [aleatorioEntre(0, 4), aleatorioEntre(0, 4), aleatorioEntre(0, 4)];
+	colocarFila(intentos, numeroApostado, resultados);
+}
 
-	let tds = [];
-	for (let index = 0; index < 5; index++) {
-		let nodo = document.createElement("td");
-		nodo.innerText = "hola";
-		console.log(nodo);
-		tds.push(nodo);
+function comprobarNumeroApostado(num) {
+	let i = 0;
+	while (i < numerosApostados.length) {
+		if (numerosApostados[i] == num) {
+			throw "El número " + numerosApostados[i] + " ya fue apostado en el intento " + (i + 1);
+		}
+		i++;
 	}
-	let nuevaFila = document.createElement("tr");
-	for (let index = 0; index < 5; index++) {
-		nuevaFila.appendChild(tds[index]);
-	}
+}
 
+function colocarFila(nroIntento, numeroApostado, arrayResultados) {
+	let tdIntento = nuevoNodo("td", nroIntento);
+	let tdNumeroApostado = nuevoNodo("td", numeroApostado);
+	let nuevaFila = nuevoNodo("tr", "");
+	nuevaFila.appendChild(tdIntento);
+	nuevaFila.appendChild(tdNumeroApostado);
+	for (let i = 0; i < arrayResultados.length; i++) {
+		let res = arrayResultados[i];
+		nuevaFila.appendChild(nuevoNodo("td", res));
+	}
 	cuerpoTabla.appendChild(nuevaFila);
+}
+
+function nuevoNodo(tipo, valor) {
+	let elemento = document.createElement(tipo);
+	elemento.innerText = valor;
+	return elemento;
 }
 
 function tieneCifrasIguales(numStr) {

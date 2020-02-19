@@ -11,6 +11,15 @@
 		<div class="container-fluid">
 			<div class="row col-md-12"></div>
 			<div class="row col-md-12">
+				<div class="input-group ">
+					<input id="inputNumeroApostado" type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button" onclick="adivinar()">Adivinar</button>
+						<button class="btn btn-outline-secondary" type="button" onclick="reiniciar()">Reiniciar</button>
+					</div>
+				</div>
+			</div>
+			<div class="row col-md-12">
 				<div class="table-responsive">
 					<table class="table table-hover">
 						<thead>
@@ -22,7 +31,7 @@
 								<th scope="col">Malos</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody id="cuerpoTabla">
 							<tr>
 								<th scope="row">1</th>
 								<td>Mark</td>
@@ -42,15 +51,6 @@
 							</tr>
 						</tbody>
 					</table>
-				</div>
-			</div>
-			<div class="row col-md-12">
-				<div class="input-group ">
-					<input type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="button" onclick="adivinar()">Adivinar</button>
-						<button class="btn btn-outline-secondary" type="button" onclick="reiniciar()">Reiniciar</button>
-					</div>
 				</div>
 			</div>
 		</div>
