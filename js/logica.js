@@ -13,7 +13,7 @@ function aleatorioEntre(min, max) {
 
 function nuevoNumeroPensado() {
 	let x = aleatorioEntre(NUM_MIN, NUM_MAX + 1).toString(10);
-	while (tieneCifrasIguales(x)) {
+	while (tieneDigitosIguales(x)) {
 		x = aleatorioEntre(NUM_MIN, NUM_MAX + 1).toString(10);
 	}
 	return x;
@@ -80,13 +80,37 @@ function esBueno(digitoApostado, posicion) {
 }
 
 function comprobarNumeroApostado(num) {
-	let i = 0;
-	while (i < numerosApostados.length) {
-		if (numerosApostados[i] == num) {
-			throw "El número " + numerosApostados[i] + " ya fue apostado en el intento " + (i + 1);
-		}
-		i++;
+	if (empiezaConCero(num)) {
+		throw "El número " + num + " empieza con cero.";
 	}
+	let pos = existeNumeroApostado(num);
+	if (pos != -1) {
+		throw "El número " + num + " ya fue apostado en el intento " + (pos + 1) + ".";
+	}
+	if (tieneDigitosIguales(num)) {
+		throw "El número " + num + " tiene dígitos iguales.";
+	}
+	if (!esNumero(num)) {
+		throw num + " no representa un número entero de 4 dígitos.";
+	}
+}
+
+function esNumero(num) {
+	let reg = new RegExp("^[0-9]+$");
+	return reg.test(num);
+}
+
+function existeNumeroApostado(num) {
+	let i = numerosApostados.length - 1;
+	let existe = false;
+	while (i >= 0 && !existe) {
+		if (numerosApostados[i] == num) {
+			existe = true;
+		} else {
+			i--;
+		}
+	}
+	return i;
 }
 
 function colocarFila(nroIntento, numeroApostado, arrayResultados) {
@@ -108,7 +132,7 @@ function nuevoNodo(tipo, valor) {
 	return elemento;
 }
 
-function tieneCifrasIguales(numStr) {
+function tieneDigitosIguales(numStr) {
 	let tiene = false;
 	let i = 0;
 	let arrNumeros = numStr.split("");
