@@ -3,6 +3,8 @@ const NUM_MAX = 9876;
 let numerosApostados = [];
 let cuerpoTabla = document.getElementById("cuerpoTabla");
 let inputNumeroApostado = document.getElementById("inputNumeroApostado");
+let btnAdivinar = document.getElementById("btnAdivinar");
+let btnReiniciar = document.getElementById("btnReiniciar");
 let numeroPensado;
 let digitosPensados;
 let intentos = 0;
@@ -33,6 +35,7 @@ function limpiarTabla() {
 
 function reiniciar() {
 	limpiarTabla();
+	activarAdivinanza(true);
 	numeroPensado = nuevoNumeroPensado();
 	digitosPensados = numeroPensado.split("");
 	console.log(numeroPensado);
@@ -45,6 +48,18 @@ function adivinar() {
 	numerosApostados.push(numeroApostado);
 	let resultados = analizar(numeroApostado);
 	colocarFila(intentos, numeroApostado, resultados);
+	if (adivino(numeroApostado)) {
+		ganar();
+		activarAdivinanza(false);
+	}
+}
+
+function ganar() {
+	alert("Ganaste");
+}
+
+function adivino(num) {
+	return num == numeroPensado;
 }
 
 function analizar(numeroApostado) {
@@ -149,4 +164,18 @@ function tieneDigitosIguales(numStr) {
 	return tiene;
 }
 
-window.onload = reiniciar;
+function escucharAccion(elemento, tipoEvento, callback, bandera) {
+	if (bandera) {
+		elemento[tipoEvento] = callback;
+	} else {
+		elemento[tipoEvento] = null;
+	}
+}
+
+function activarAdivinanza(bandera) {
+	escucharAccion(btnAdivinar, "onclick", adivinar, bandera);
+}
+
+//window.onload = reiniciar;
+escucharAccion(window, "onload", reiniciar, true);
+escucharAccion(btnReiniciar, "onclick", reiniciar, true);
