@@ -3,19 +3,39 @@
 	<head>
 		<title>Adivina número</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 		<link rel="icon" href="img/favicon.ico" />
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 	</head>
-	<body>
-		<div class="container-fluid">
-			<div class="row col-md-12"></div>
+	<body class="bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+			<a class="navbar-brand" href="#">
+				<img src="img/logo.png" width="150" height="30" alt="" />
+			</a>
+			<div class="derecha">
+				<button class="btn btn-success btn-sm" type="button">Instrucciones</button>
+				<button class="btn btn-success btn-sm" type="button" id="btn-reiniciar">Reiniciar</button>
+			</div>
+		</nav>
+		<div class="container juego">
 			<div class="row col-md-12">
-				<div class="input-group ">
-					<input id="inputNumeroApostado" type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+				<div id="alerta" class="d-none alert alert-dismissible w-100 alert-danger" role="alert">
+					<div id="mensaje-alerta">
+						A simple danger alert—check it out!
+					</div>
+					<button id="btn-cerrar-alerta" type="button" class="close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			</div>
+			<div class="row col-md-12">
+				<div class="input-group input-group-lg">
+					<input id="input-numero-apostado" type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
 					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" type="button" id="btnAdivinar">Adivinar</button>
-						<button class="btn btn-outline-secondary" type="button" id="btnReiniciar">Reiniciar</button>
+						<button class="btn btn-secondary" type="button" id="btn-adivinar">Adivinar</button>
 					</div>
 				</div>
 			</div>
@@ -31,31 +51,71 @@
 								<th scope="col">Malos</th>
 							</tr>
 						</thead>
-						<tbody id="cuerpoTabla">
-							<tr>
-								<th scope="row">1</th>
-								<td>Mark</td>
-								<td>Otto</td>
-								<td>@mdo</td>
-							</tr>
-							<tr>
-								<th scope="row">2</th>
-								<td>Jacob</td>
-								<td>Thornton</td>
-								<td>@fat</td>
-							</tr>
-							<tr>
-								<th scope="row">3</th>
-								<td colspan="2">Larry the Bird</td>
-								<td>@twitter</td>
-							</tr>
-						</tbody>
+						<tbody id="cuerpo-tabla"></tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+		<footer class="bg-secondary fixed-bottom">
+		
+			<!-- Footer Elements -->
+			<div class="container">
+		
+				<!-- Social buttons -->
+				<ul class="list-unstyled list-inline text-center">
+					<li class="list-inline-item">
+						<a class="btn-floating btn-tw mx-1" src="https://www.linkedin.com/in/caemci/">
+							<i class="fab fa-linkedin icono-red-social"></i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-gplus mx-1" src="https://www.youtube.com/carlosemanuelcimino">
+							<i class="fab fa-youtube icono-red-social"> </i>
+						</a>
+					</li>
+					<li class="list-inline-item">
+						<a class="btn-floating btn-li mx-1" src="https://github.com/caemci">
+							<i class="fab fa-github icono-red-social"> </i>
+						</a>
+					</li>
+				</ul>
+				<!-- Social buttons -->
+		
+			</div>
+			<!-- Footer Elements -->
+		
+			<div class="container text-center">
+				<p>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"></a><img
+						alt="Licencia Creative Commons" style="border-width:0"
+						src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+					Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Licencia
+						Creative Commons Atribución – No Comercial – Sin Obra Derivada 4.0 Internacional</a>.
+				</p>
+			</div>
+		
+		</footer>
+		</div>
 
-		<div class="caja pie">Desarrollado por <img src="img/logoHorizontal.png" /></div>
+		<div class="modal" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p>Modal body text goes here.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

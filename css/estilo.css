@@ -2,87 +2,18 @@
 	box-sizing: border-box;
 }
 
-/*body {
-	font-family: "Century Gothic", Verdana, sans-serif;
-	font-size: 20px;
+body {
+	font-family: "Lato", sans-serif;
+	font-size: 14px;
 	color: white;
 	text-align: center;
-	margin: 2% 10%;
-	padding: 0;
-	background-image: url("../img/fondo2.jpg");
-	background-size: cover;
-	background-attachment: fixed;
+	margin-bottom: 5%;
 }
 
-.caja {
-	padding: 0.5% 1%;
-	margin: 1%;
-	border-radius: 20px;
-	background-color: rgba(27, 35, 48, 0.85);
-}
-
-.izquierda {
-	float: left;
-	width: 35%;
-	height: 60%;
+.juego {
+	margin-top: 1%;
 }
 
 .derecha {
 	float: right;
-	width: 60%;
-	height: 60%;
 }
-
-.pie {
-	clear: both;	
-}
-
-.instrucciones {
-	font-size: 100%;
-}
-
-.interfaz {
-	padding: 4%; 
-}
-
-#imagenGenio {
-	display: block;
-	width: 60%;
-	margin: 2% auto;
-}
-
-.destacado {
-	font-size: 200%;
-	background: #0b2528;
-	color: white;
-	text-align: center;
-	display: block;
-	margin: 0 auto;
-}
-
-.destacado2 {
-	font-size: 150%;
-	border: 5px solid #347fe2;
-	background: #005bb7;
-	border-radius: 30px; 
-	margin: 0 auto;
-	padding: 1.8%;
-}
-
-.destacado3 {
-	font-size: 80%;
-	font-weight: bolder;
-	border: 3px solid #f23756;
-	background: #9b283b;
-	border-radius: 30px; 
-	margin: 0 auto;
-	padding: 1.8%;
-}
-
-#entradaDelUsuario {
-	width: 20%;
-}
-
-#botonAdivinar {
-	padding: 2% 5%;
-}*/

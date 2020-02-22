@@ -1,13 +1,44 @@
 const NUM_MIN = 1023;
 const NUM_MAX = 9876;
+const DANGER = "danger";
+const SUCCESS = "success";
 let numerosApostados = [];
-let cuerpoTabla = document.getElementById("cuerpoTabla");
-let inputNumeroApostado = document.getElementById("inputNumeroApostado");
-let btnAdivinar = document.getElementById("btnAdivinar");
-let btnReiniciar = document.getElementById("btnReiniciar");
+let cuerpoTabla = document.getElementById("cuerpo-tabla");
+let inputNumeroApostado = document.getElementById("input-numero-apostado");
+let btnAdivinar = document.getElementById("btn-adivinar");
+let btnReiniciar = document.getElementById("btn-reiniciar");
+let btnCerrarAlerta = document.getElementById("btn-cerrar-alerta");
 let numeroPensado;
 let digitosPensados;
 let intentos = 0;
+
+function adivinar() {
+	try {
+		let numeroApostado = inputNumeroApostado.value;
+		comprobarNumeroApostado(numeroApostado);
+		intentos++;
+		numerosApostados.push(numeroApostado);
+		let resultados = analizar(numeroApostado);
+		colocarFila(intentos, numeroApostado, resultados);
+		if (adivino(numeroApostado)) {
+			ganar();
+			activarAdivinanza(false);
+		}
+	} catch (msj) {
+		mostrarAlerta("Error: " + msj, "danger");
+	}
+}
+
+function mostrarAlerta(msj, tipo) {
+	let alerta = document.getElementById("alerta");
+	while (alerta.classList.length > 0) {
+		alerta.classList.remove(alerta.classList.item(0));
+	}
+	alerta.classList.add("alert", "alert-dismissible", "w-100", "alert-" + tipo);
+	let mensajeAlerta = document.getElementById("mensaje-alerta");
+	mensajeAlerta.innerHTML = msj;
+	$("#alerta").show();
+}
 
 function aleatorioEntre(min, max) {
 	return Math.floor(Math.random() * (max - min) + min);
@@ -39,19 +70,6 @@ function reiniciar() {
 	numeroPensado = nuevoNumeroPensado();
 	digitosPensados = numeroPensado.split("");
 	console.log(numeroPensado);
-}
-
-function adivinar() {
-	let numeroApostado = inputNumeroApostado.value;
-	comprobarNumeroApostado(numeroApostado);
-	intentos++;
-	numerosApostados.push(numeroApostado);
-	let resultados = analizar(numeroApostado);
-	colocarFila(intentos, numeroApostado, resultados);
-	if (adivino(numeroApostado)) {
-		ganar();
-		activarAdivinanza(false);
-	}
 }
 
 function ganar() {
@@ -95,6 +113,9 @@ function esBueno(digitoApostado, posicion) {
 }
 
 function comprobarNumeroApostado(num) {
+	if (num == "") {
+		throw "No se escribió ningún número.";
+	}
 	if (empiezaConCero(num)) {
 		throw "El número " + num + " empieza con cero.";
 	}
@@ -176,6 +197,11 @@ function activarAdivinanza(bandera) {
 	escucharAccion(btnAdivinar, "onclick", adivinar, bandera);
 }
 
+function cerrarAlerta() {
+	$("#alerta").hide();
+}
+
 //window.onload = reiniciar;
 escucharAccion(window, "onload", reiniciar, true);
 escucharAccion(btnReiniciar, "onclick", reiniciar, true);
+escucharAccion(btnCerrarAlerta, "onclick", cerrarAlerta, true);
