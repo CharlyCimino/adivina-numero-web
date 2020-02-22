@@ -21,7 +21,8 @@ function adivinar() {
 		let resultados = analizar(numeroApostado);
 		colocarFila(intentos, numeroApostado, resultados);
 		if (adivino(numeroApostado)) {
-			ganar();
+			let msj = "¡Ganaste! El número era " + numeroApostado + ". Adivinaste en " + intentos + " intento" + (intentos > 1 ? "s" : "");
+			mostrarAlerta(msj, SUCCESS);
 			activarAdivinanza(false);
 		}
 	} catch (msj) {
@@ -66,15 +67,16 @@ function limpiarTabla() {
 
 function reiniciar() {
 	limpiarTabla();
+	intentos = 0;
+	inputNumeroApostado.value = "";
+	numerosApostados = [];
 	activarAdivinanza(true);
 	numeroPensado = nuevoNumeroPensado();
 	digitosPensados = numeroPensado.split("");
 	console.log(numeroPensado);
 }
 
-function ganar() {
-	alert("Ganaste");
-}
+function ganar() {}
 
 function adivino(num) {
 	return num == numeroPensado;
