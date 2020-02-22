@@ -1,3 +1,4 @@
+const DIGITOS = 4;
 const NUM_MIN = 1023;
 const NUM_MAX = 9876;
 const DANGER = "danger";
@@ -21,7 +22,7 @@ function adivinar() {
 		let resultados = analizar(numeroApostado);
 		colocarFila(intentos, numeroApostado, resultados);
 		if (adivino(numeroApostado)) {
-			let msj = "¡Ganaste! El número era " + numeroApostado + ". Adivinaste en " + intentos + " intento" + (intentos > 1 ? "s" : "");
+			let msj = "¡Ganaste! El número era " + numeroApostado + ". Adivinaste en " + intentos + " intento" + (intentos > 1 ? "s" : "") + ".";
 			mostrarAlerta(msj, SUCCESS);
 			activarAdivinanza(false);
 		}
@@ -118,18 +119,21 @@ function comprobarNumeroApostado(num) {
 	if (num == "") {
 		throw "No se escribió ningún número.";
 	}
+	if (num.length != DIGITOS) {
+		throw "El número <strong>" + num + "</strong> no tiene " + DIGITOS + " dígitos.";
+	}
 	if (empiezaConCero(num)) {
-		throw "El número " + num + " empieza con cero.";
+		throw "El número <strong>" + num + "</strong> empieza con cero.";
 	}
 	let pos = existeNumeroApostado(num);
 	if (pos != -1) {
-		throw "El número " + num + " ya fue apostado en el intento " + (pos + 1) + ".";
+		throw "El número <strong>" + num + "</strong> ya fue apostado en el intento " + (pos + 1) + ".";
 	}
 	if (tieneDigitosIguales(num)) {
-		throw "El número " + num + " tiene dígitos iguales.";
+		throw "El número <strong>" + num + "</strong> tiene dígitos iguales.";
 	}
 	if (!esNumero(num)) {
-		throw num + " no representa un número entero de 4 dígitos.";
+		throw "<strong>" + num + "</strong> no representa un número entero de " + DIGITOS + " dígitos.";
 	}
 }
 
