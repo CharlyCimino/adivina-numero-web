@@ -1,8 +1,6 @@
 const DIGITOS = 4;
 const NUM_MIN = 1023;
 const NUM_MAX = 9876;
-const DANGER = "danger";
-const SUCCESS = "success";
 let numerosApostados = [];
 let cuerpoTabla = document.getElementById("cuerpo-tabla");
 let inputNumeroApostado = document.getElementById("input-numero-apostado");
@@ -22,12 +20,12 @@ function adivinar() {
 		let resultados = analizar(numeroApostado);
 		colocarFila(intentos, numeroApostado, resultados);
 		if (adivino(numeroApostado)) {
-			let msj = "¡Ganaste! El número era " + numeroApostado + ". Adivinaste en " + intentos + " intento" + (intentos > 1 ? "s" : "") + ".";
-			mostrarAlerta(msj, SUCCESS);
+			let msj = "¡Ganaste! El número era <strong>" + numeroApostado + "</strong>. Adivinaste en " + intentos + " intento" + (intentos > 1 ? "s" : "") + ".";
+			mostrarAlerta(msj, "alerta-verde");
 			activarAdivinanza(false);
 		}
 	} catch (msj) {
-		mostrarAlerta("Error: " + msj, "danger");
+		mostrarAlerta("Error: " + msj, "alerta-roja");
 	}
 }
 
@@ -36,7 +34,7 @@ function mostrarAlerta(msj, tipo) {
 	while (alerta.classList.length > 0) {
 		alerta.classList.remove(alerta.classList.item(0));
 	}
-	alerta.classList.add("alert", "alert-dismissible", "w-100", "alert-" + tipo);
+	alerta.classList.add("alert", "alert-dismissible", "w-100", tipo);
 	let mensajeAlerta = document.getElementById("mensaje-alerta");
 	mensajeAlerta.innerHTML = msj;
 	$("#alerta").show();

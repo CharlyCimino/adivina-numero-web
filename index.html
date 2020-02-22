@@ -10,14 +10,14 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 	</head>
-	<body class="bg-light">
-		<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+	<body class="fondo-claro">
+		<nav class="navbar navbar-expand-lg navbar-light fondo-principal">
 			<a class="navbar-brand" href="#">
 				<img src="img/logo.png" width="50%" alt="Adiviná el número"/>
 			</a>
 			<div class="derecha">
-				<button class="btn btn-secondary btn-sm" type="button" data-toggle="modal" data-target="#modal-instrucciones">Instrucciones</button>
-				<button class="btn btn-secondary btn-sm" type="button" id="btn-reiniciar">Reiniciar</button>
+				<button class="btn fondo-botones" type="button" data-toggle="modal" data-target="#modal-instrucciones">Instrucciones</button>
+				<button class="btn fondo-botones" type="button" id="btn-reiniciar">Reiniciar</button>
 			</div>
 		</nav>
 		<div class="container juego">
@@ -35,7 +35,7 @@
 				<div class="input-group input-group-lg">
 					<input id="input-numero-apostado" type="text" class="form-control" placeholder="1234" aria-label="Recipient's username" aria-describedby="basic-addon2" />
 					<div class="input-group-append">
-						<button class="btn btn-secondary" type="button" id="btn-adivinar">Adivinar</button>
+						<button class="btn fondo-botones" type="button" id="btn-adivinar">Adivinar</button>
 					</div>
 				</div>
 			</div>
@@ -56,13 +56,13 @@
 				</div>
 			</div>
 		</div>
-		<footer class="bg-secondary fixed-bottom">
+		<footer class="fondo-principal fixed-bottom">
 		
 			<!-- Footer Elements -->
-			<div class="container">
+			<div class="container redes-sociales">
 		
 				<!-- Social buttons -->
-				<ul class="list-unstyled list-inline text-center">
+				<ul class="text-center">
 					<li class="list-inline-item">
 						<a class="btn-floating btn-tw mx-1" src="https://www.linkedin.com/in/caemci/">
 							<i class="fab fa-linkedin icono-red-social"></i>
@@ -100,7 +100,7 @@
 		<div class="modal fade" id="modal-instrucciones" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable" role="document">
-				<div class="modal-content">
+				<div class="modal-content fondo-claro">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalScrollableTitle">Instrucciones</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -111,7 +111,7 @@
 						Próximamente...
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<button type="button" class="btn" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>
