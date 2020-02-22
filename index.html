@@ -16,7 +16,7 @@
 				<img src="img/logo.png" width="150" height="30" alt="" />
 			</a>
 			<div class="derecha">
-				<button class="btn btn-success btn-sm" type="button">Instrucciones</button>
+				<button class="btn btn-success btn-sm" type="button" data-toggle="modal" data-target="#modal-instrucciones">Instrucciones</button>
 				<button class="btn btn-success btn-sm" type="button" id="btn-reiniciar">Reiniciar</button>
 			</div>
 		</nav>
@@ -97,21 +97,21 @@
 		</footer>
 		</div>
 
-		<div class="modal" tabindex="-1" role="dialog">
-			<div class="modal-dialog" role="document">
+		<div class="modal fade" id="modal-instrucciones" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-scrollable" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Modal title</h5>
+						<h5 class="modal-title" id="exampleModalScrollableTitle">Instrucciones</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<p>Modal body text goes here.</p>
+						Próximamente...
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
 			</div>
